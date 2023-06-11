@@ -1,4 +1,6 @@
 #include "Empleado.h"
+#include <iomanip>
+
 class Tecnico:Empleado{
 
 public:
@@ -17,7 +19,7 @@ public:
     double renta= CalculoRenta();
     double salarioNeto= salario-renta;
 
-    cout<<"Descuento AFP Empleado: $ "<<afp<<endl;
+    cout<<"Descuento AFP Empleado: $"<<fixed<<setprecision(2)<<afp<<endl;
     cout<<"Descuento Seguro Empleado: $"<<iss<<endl;
     cout<<"Descuento AFP al Empleador: $"<<afpEmpleador<<endl;
     cout<<"Descuento Seguro al Empleador: $"<<issEmpleador<<endl;

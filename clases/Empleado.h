@@ -7,7 +7,7 @@ using namespace std;
 
 class Empleado
 {
-
+    public:
 private:
     struct Fecha
     {
