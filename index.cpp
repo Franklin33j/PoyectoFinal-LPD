@@ -6,11 +6,13 @@
 using namespace std;
 
 void ManejadorOpciones(int);
-void OrdenarPosiciones(int);
-
+void OrdenarPorApellido(int);
+void OrdenarPorSalario(int);
+int Menu();
+void MostrarPorRoles(int);
+void AgregarEmpleado(int);
 int main()
 {
-    Empleado* emp=new Gerente;
     int opcion = 0;
     do
     {
@@ -27,10 +29,8 @@ int main()
             system("cls");
             ManejadorOpciones(opcion);
         }
-        
+
     } while (opcion != 5);
-   
-    
 }
 
 void ManejadorOpciones(int opcion)
@@ -39,98 +39,277 @@ void ManejadorOpciones(int opcion)
     switch (opcion)
     {
     case 1:
-           
         do
-        {  
-            
+        {
             system("cls");
-            cout << "Seleccione una opcion para listar los empleados por apellido" << endl;
-            cout << "1-Directores" << endl;
-            cout << "2-Gerentes" << endl;
-            cout << "3-Jefes de Area" << endl;
-            cout << "4-Supervisores" << endl;
-            cout << "5-Tecnicos" << endl;
-            cout << "6-Todos" << endl;
-            cout << "7-Salir" << endl;
-            cin >> opcionMenu;
+            cout << "Seleccione una opcion para listar los empleados por orden del primer Apellido(a-z)" << endl;
+            opcionMenu = Menu();
             if (opcionMenu >= 1 && opcionMenu <= 6)
             {
-               
-                OrdenarPosiciones(opcionMenu);
-            }
-        } while (opcionMenu == 7);
 
+                OrdenarPorApellido(opcionMenu);
+            }
+
+        } while (opcionMenu != 7);
         break;
     case 2:
 
         do
         {
             system("cls");
-            cout << "Seleccione una opcion para listar los empleados por salario" << endl;
+            cout << "Seleccione una opcion para listar los empleados por orden del primer Salario Neto(menor-mayor)" << endl;
+            opcionMenu = Menu();
+            if (opcionMenu >= 1 && opcionMenu <= 6)
+            {
+                OrdenarPorSalario(opcionMenu);
+            }
+
+        } while (opcionMenu != 7);
+
+        break;
+    case 3:
+
+        do
+        {
+            system("cls");
+            cout << "Seleccione una opcion para listar los empleados por puestos" << endl;
+            opcionMenu = Menu();
+            if (opcionMenu >= 1 && opcionMenu <= 6)
+            {
+                MostrarPorRoles(opcionMenu);
+            }
+
+        } while (opcionMenu != 7);
+        break;
+    case 4:
+        do
+        {
+            system("cls");
+            cout << "Seleccione una opcion para agregar un empleado por puesto" << endl;
             cout << "1-Directores" << endl;
             cout << "2-Gerentes" << endl;
             cout << "3-Jefes de Area" << endl;
             cout << "4-Supervisores" << endl;
             cout << "5-Tecnicos" << endl;
-            cout << "6-Todos" << endl;
-            cout << "7-Salir" << endl;
-            cin >> opcionMenu;
+            cout << "6-Salir" << endl;
+            cin>>opcionMenu;
             if (opcionMenu >= 1 && opcionMenu <= 6)
             {
-                OrdenarPosiciones(opcionMenu);
+                AgregarEmpleado(opcionMenu);
             }
 
-        } while (opcion == 7);
-
+        } while (opcionMenu != 6);
         break;
-    case 3:
-
-        break;
-    case 4:
-
-        break;
-
-       
     }
     return;
 }
 
-void OrdenarPosiciones(int op)
+int Menu()
+{
+    int opcionMenu;
+    cout << "1-Directores" << endl;
+    cout << "2-Gerentes" << endl;
+    cout << "3-Jefes de Area" << endl;
+    cout << "4-Supervisores" << endl;
+    cout << "5-Tecnicos" << endl;
+    cout << "6-Todos" << endl;
+    cout << "7-Salir" << endl;
+    cin >> opcionMenu;
+    return opcionMenu;
+}
+
+void OrdenarPorApellido(int op)
 {
     switch (op)
     {
     case 1:
-    system("cls");
-       
+        system("cls");
+        Archivo::LeerDatosDirectores(1);
         system("pause");
         break;
     case 2:
-    system("cls");
-        Archivo::LeerDatosGerentes();
+        system("cls");
+        Archivo::LeerDatosGerentes(1);
+        system("pause");
         break;
     case 3:
-    system("cls");
-        Archivo::LeerDatosJefesArea();
+        system("cls");
+        Archivo::LeerDatosJefesArea(1);
+        system("pause");
         break;
     case 4:
-    system("cls");
-        Archivo::LeerDatosSupervisores();
+        system("cls");
+        Archivo::LeerDatosSupervisores(1);
+        system("pause");
         break;
     case 5:
-    system("cls");
-        Archivo::LeerDatosTecnicos();
+        system("cls");
+        Archivo::LeerDatosTecnicos(1);
+        system("pause");
         break;
-        case 6:
-    system("cls");
-
-     Archivo::LeerDatosDirectores();
-
-    Archivo::LeerDatosGerentes();
-    Archivo::LeerDatosJefesArea();
-    Archivo::LeerDatosSupervisores();
-        Archivo::LeerDatosTecnicos();
+    case 6:
+        system("cls");
+        cout << "DIRECTORES\n\n"
+             << endl;
+        Archivo::LeerDatosDirectores(1);
+        cout << "\n\nGERENTES\n"
+             << endl;
+        Archivo::LeerDatosGerentes(1);
+        cout << "\n\nGEFES AREA\n"
+             << endl;
+        Archivo::LeerDatosJefesArea(1);
+        cout << "\n\nSUPERVISORES\n"
+             << endl;
+        Archivo::LeerDatosSupervisores(1);
+        cout << "\n\nTECNICOS\n"
+             << endl;
+        Archivo::LeerDatosTecnicos(1);
+        system("pause");
         break;
     }
     return;
-    
+}
+void OrdenarPorSalario(int op)
+{
+    switch (op)
+    {
+    case 1:
+        system("cls");
+        Archivo::LeerDatosDirectores(2);
+        system("pause");
+        break;
+    case 2:
+        system("cls");
+        Archivo::LeerDatosGerentes(2);
+        system("pause");
+        break;
+    case 3:
+        system("cls");
+        Archivo::LeerDatosJefesArea(2);
+        system("pause");
+        break;
+    case 4:
+        system("cls");
+        Archivo::LeerDatosSupervisores(2);
+        system("pause");
+        break;
+    case 5:
+        system("cls");
+        Archivo::LeerDatosTecnicos(2);
+        system("pause");
+        break;
+    case 6:
+        system("cls");
+        cout << "DIRECTORES\n\n"
+             << endl;
+        Archivo::LeerDatosDirectores(2);
+        cout << "\n\nGERENTES\n"
+             << endl;
+        Archivo::LeerDatosGerentes(2);
+        cout << "\n\nGEFES AREA\n"
+             << endl;
+        Archivo::LeerDatosJefesArea(2);
+        cout << "\n\nSUPERVISORES\n"
+             << endl;
+        Archivo::LeerDatosSupervisores(2);
+        cout << "\n\nTECNICOS\n"
+             << endl;
+        Archivo::LeerDatosTecnicos(2);
+        system("pause");
+        break;
+    }
+    return;
+}
+void MostrarPorRoles(int op)
+{
+    switch (op)
+    {
+    case 1:
+        system("cls");
+        Archivo::LeerDatosDirectores(3);
+        system("pause");
+        break;
+    case 2:
+        system("cls");
+        Archivo::LeerDatosGerentes(3);
+        system("pause");
+        break;
+    case 3:
+        system("cls");
+        Archivo::LeerDatosJefesArea(3);
+        system("pause");
+        break;
+    case 4:
+        system("cls");
+        Archivo::LeerDatosSupervisores(3);
+        system("pause");
+        break;
+    case 5:
+        system("cls");
+        Archivo::LeerDatosTecnicos(3);
+        system("pause");
+        break;
+    case 6:
+        system("cls");
+        cout << "DIRECTORES\n\n"
+             << endl;
+        Archivo::LeerDatosDirectores(3);
+        cout << "\n\nGERENTES\n"
+             << endl;
+        Archivo::LeerDatosGerentes(3);
+        cout << "\n\nGEFES AREA\n"
+             << endl;
+        Archivo::LeerDatosJefesArea(3);
+        cout << "\n\nSUPERVISORES\n"
+             << endl;
+        Archivo::LeerDatosSupervisores(3);
+        cout << "\n\nTECNICOS\n"
+             << endl;
+        Archivo::LeerDatosTecnicos(3);
+        system("pause");
+        break;
+    }
+    return;
+}
+void AgregarEmpleado(int op)
+{
+    switch (op)
+    {
+    case 1:
+    {
+        system("cls");
+        Director *director = new Director;
+        director->AgregarDirector();
+        system("pause");
+    }
+    break;
+    case 2:
+    {
+        system("cls");
+        // Archivo::LeerDatosGerentes(3);
+        system("pause");
+    }
+    break;
+    case 3:
+    {
+        system("cls");
+        // Archivo::LeerDatosJefesArea(3);
+        system("pause");
+    }
+    break;
+    case 4:
+    {
+        system("cls");
+        // Archivo::LeerDatosSupervisores(3);
+        system("pause");
+        break;
+    }
+    case 5:
+    {
+        system("cls");
+        // Archivo::LeerDatosTecnicos(3);
+        system("pause");
+    }
+    break;
+    }
 }

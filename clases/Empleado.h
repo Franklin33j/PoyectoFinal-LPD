@@ -7,22 +7,21 @@ using namespace std;
 
 class Empleado
 {
-    public:
-private:
+
+protected:
+    Empleado(){};
+    /*Al declarar el constructor como protected le estoy diciendo al complidador que no
+    se puede crear una instacia para esta clase mas que solo sus clases hijas*/
     struct Fecha
     {
         int año;
         int mes;
         int dia;
     };
-
-protected:
-    Empleado(){};
-    /*Al declarar el constructor como protected le estoy diciendo al complidador que no
-    se puede crear una instacia para esta clase mas que solo sus clases hijas*/
-
-    string nombres;
-    string apellidos;
+    string nombre1;
+    string nombre2;
+    string apellido1;
+    string apellido2;
     string direccion;
     Fecha fechaNacimiento;
     string telefono;
@@ -49,24 +48,24 @@ protected:
     // usar este metodo involucra restar el afp y iss al salario
     double CalculoRenta()
     {
-        salario = salario - DescuentoSeguroEmpleado() - DescuentoAFPEmpleado();
+         double salRenta = salario - DescuentoSeguroEmpleado() - DescuentoAFPEmpleado();
 
-        if (salario > 0.01 && salario <= 472.00)
+        if (salRenta > 0.01 && salRenta <= 472.00)
         {
-            cout << "salario: " << salario << endl;
+            cout << "salario: " << salRenta << endl;
             return 0.00;
         }
-        else if (salario >= 472.01 && salario <= 895.24)
+        else if (salRenta >= 472.01 && salRenta <= 895.24)
         {
-            return this->Retencion(salario, 10, 472.00, 17.67);
+            return this->Retencion(salRenta, 10, 472.00, 17.67);
         }
-        else if (salario >= 895.25 && salario <= 2038.10)
+        else if (salRenta >= 895.25 && salRenta <= 2038.10)
         {
-            return this->Retencion(salario, 20, 895.24, 60.00);
+            return this->Retencion(salRenta, 20, 895.24, 60.00);
         }
         else
         {
-            return this->Retencion(salario, 30, 2038.10, 288.57);
+            return this->Retencion(salRenta, 30, 2038.10, 288.57);
         }
     }
     double Retencion(double salario, int tasa, double excedente, double cuotaFija)
@@ -78,10 +77,10 @@ protected:
     }
     int generarAleatorio(int min, int max)
     {
-
-        std::random_device rd;
-        std::mt19937 rng(rd());
-        std::uniform_int_distribution<int> distribucion(min, max);
+        
+        random_device rd;
+        mt19937 rng(rd());
+        uniform_int_distribution<int> distribucion(min, max);
         int numeroAleatorio = distribucion(rng);
         return numeroAleatorio;
     }

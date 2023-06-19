@@ -5,6 +5,7 @@
 
  class Gerente:public Empleado{
 
+private:
 public:
     Gerente(){
         salario =5000;
@@ -33,33 +34,9 @@ public:
 
 
     }
-
     void BonoMensual(){
         //se le dara un bono al 10% de su salario
         int bono =10;
         salario=salario+((salario/100)*bono);
     }
-    //setters
-    void SetNombres(string nombres){
-        this->nombres=nombres;
-    }
-    void SetApellidos(string apellidos){
-        this->apellidos=apellidos;
-    }
-    void SetDireccion(string direccion){
-        this->direccion=direccion;
-    }
-    void  setFechaNacimiento(int dia, int mes, int año){
-        this->fechaNacimiento.año=año;
-        this->fechaNacimiento.mes=mes;
-        this->fechaNacimiento.dia=dia;
-    }
-    void setTelefono(string telefono){
-        this->telefono=telefono;
-    }
-    void setSexo(char sexo){
-        this->sexo=sexo;
-    }
-   
-    
 };
