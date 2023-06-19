@@ -67,7 +67,7 @@ private:
                 stringstream ss(linea);
                 DatosPersona persona;
                 ss >> persona.cod >> persona.nombre1 >> persona.nombre2 >> persona.apellido1 >> persona.apellido2 >> persona.salario >> persona.SalarioNeto >> persona.telefono >> persona.fechaNacimiento >> persona.cod >> persona.direccion;
-                persona.cod = linea.substr(0, 5);
+                persona.cod = linea.substr(0, 6);
                 personas.push_back(persona);
             }
             archivoEntrada.close();
@@ -131,6 +131,7 @@ public:
     }
     static void LeerDatosTecnicos(int opcion)
     {
+        cout<<"hiiiiiiiiiiiiiiiiiiiiiii"<<endl;
         string rutaRelativa = "../archivos/Tecnicos.txt";
         LeerArchivos(rutaRelativa, opcion);
         return;

@@ -2,6 +2,9 @@
 #include "clases/Gerente.h"
 #include "clases/Empleado.h"
 #include "clases/Director.h"
+#include "clases/JefeArea.h"
+#include "clases/Supervisor.h"
+#include "clases/Tecnico.h"
 #include "manejoArchivos/Archivo.h"
 using namespace std;
 
@@ -281,34 +284,43 @@ void AgregarEmpleado(int op)
         Director *director = new Director;
         director->AgregarDirector();
         system("pause");
+        delete director;
     }
     break;
     case 2:
     {
         system("cls");
-        // Archivo::LeerDatosGerentes(3);
+        Gerente *gerente = new Gerente;
+        gerente->AgregarGerente();
         system("pause");
+        delete gerente;
     }
     break;
     case 3:
     {
         system("cls");
-        // Archivo::LeerDatosJefesArea(3);
+        JefeArea *jefeArea= new JefeArea;
+        jefeArea->AgregarJefeArea();
         system("pause");
+        delete (jefeArea);
     }
     break;
     case 4:
     {
         system("cls");
-        // Archivo::LeerDatosSupervisores(3);
+        Supervisor *supervisor = new Supervisor;
+        supervisor->AgregarSupervisor();
         system("pause");
+        delete supervisor;
         break;
     }
     case 5:
     {
         system("cls");
-        // Archivo::LeerDatosTecnicos(3);
+        Tecnico *tecnico = new Tecnico;
+        tecnico->AgregarTecnico(); 
         system("pause");
+        delete tecnico;
     }
     break;
     }

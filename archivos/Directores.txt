@@ -1,6 +1,3 @@
-350278 Ana Maria Ayala Perez  5230 4555 77563422 12/33/33 2345 calle a san migyuel hy thhty
-350278 Maria Cecilia Ostorga Mijares 45645 7676 7723492 12/44/33 3457 calle a los abetos trr
-350278 Jose Luis Antonio Ayala 1077.00 980.65 4567899 12/4/2000 calle a san Ramon trthb trr
-190586 Maria isabel granado juarez 1077.00 980.65 45466675 12/5/7666 calle a san julian la ceiba
-250686 Jose Franklin Angel Guevara 1200.00 1103.65 5467884 12/4/12 calle a san ramon
-463372 Jose Franklin Antonio Ayala 1200.00 980.65 73451597 12/3/1200 calle a san Miguel
+740781 Luis Antonio Perez Perez 1200.00 980.65 77345678 22/3/1990 Calle a los planes de renderos
+684963 Daniela Azucena Juarez Ayala 1200.00 980.65 73353254 28/12/1978 Colonia Los robles, Soyapango
+874642 Daniel Alexander Martinez Flores 1200.00 980.65 62345674 22/9/1995 San Vicente, San Vicente

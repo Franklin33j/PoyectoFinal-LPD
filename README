@@ -13,6 +13,9 @@ El proyecto consiste en listar y registrar empleados de acuerdo a sus posiciones
 - Supervisor
 - Tecnico
  
+Los archivos .txt tienen la siguiente estructura respecto a la columnas:
+
+cod| Nombre1| Nombre2| Apellido1| Apellido2|  salario| salarioNeto| FechaNacimiento|  Telefono| Direccion
 
 Cada puesto tiene atribtos en comun de la clase empleado pero implementan funcionalidades diferentes
 
